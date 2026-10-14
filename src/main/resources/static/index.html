@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Job Application Tracker</h1>
+    <p>Keep track of every application in one place.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 id="form-title">Add application</h2>
+      <form id="app-form">
+        <input type="hidden" id="app-id">
+        <div class="grid">
+          <label>Company
+            <input type="text" id="company" placeholder="e.g. NTT Data" required>
+          </label>
+          <label>Role
+            <input type="text" id="role" placeholder="e.g. Java Developer" required>
+          </label>
+          <label>Status
+            <select id="status">
+              <option value="APPLIED">Applied</option>
+              <option value="INTERVIEW">Interview</option>
+              <option value="OFFER">Offer</option>
+              <option value="REJECTED">Rejected</option>
+            </select>
+          </label>
+          <label>Applied date
+            <input type="date" id="appliedDate">
+          </label>
+        </div>
+        <label>Notes
+          <textarea id="notes" rows="2" maxlength="500" placeholder="Recruiter name, next steps..."></textarea>
+        </label>
+        <div class="actions">
+          <button type="submit" id="save-btn">Save</button>
+          <button type="button" id="cancel-btn" class="secondary hidden">Cancel edit</button>
+        </div>
+        <p id="message" class="message"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <h2>My applications</h2>
+        <select id="filter">
+          <option value="">All statuses</option>
+          <option value="APPLIED">Applied</option>
+          <option value="INTERVIEW">Interview</option>
+          <option value="OFFER">Offer</option>
+          <option value="REJECTED">Rejected</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Company</th><th>Role</th><th>Status</th><th>Date</th><th>Notes</th><th></th></tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty hidden">No applications yet. Add your first one above.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
